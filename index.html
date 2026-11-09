@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#28666e" />
+    <title>Mundo das Palavras · Elisa</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">✦</div>
+      <div>
+        <p class="eyebrow">4º bimestre · 2º ano</p>
+        <h1>Mundo das Palavras</h1>
+      </div>
+      <button class="pause-button" id="pauseButton" type="button" aria-label="Pausar a revisão">Pausa</button>
+    </header>
+
+    <main class="shell">
+      <section class="welcome-card" aria-labelledby="welcome-title">
+        <div class="welcome-copy">
+          <p class="eyebrow">4º bimestre · Português</p>
+          <h2 id="welcome-title">Vamos brincar com as palavras?</h2>
+          <p>Escolha uma missão. Veja os exemplos e jogue uma pergunta de cada vez.</p>
+          <div class="session-actions">
+            <button class="primary-button" id="startButton" type="button">Começar a jogar</button>
+            <button class="secondary-button" id="classifyButton" type="button">Ler uma carta</button>
+            <button class="text-button" id="resetButton" type="button">Apagar progresso</button>
+          </div>
+        </div>
+        <div class="lab-illustration" aria-hidden="true"><span>🔎</span><i></i><b></b></div>
+      </section>
+
+      <section class="progress-panel" aria-label="Progresso da revisão">
+        <div class="progress-label"><span id="progressText" role="status">0 de 7 missões concluídas</span><span id="progressPercent">0%</span></div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      </section>
+
+      <section class="content-grid">
+        <nav class="module-nav" aria-label="Assuntos de Português">
+          <p class="nav-title">Mapa das descobertas</p>
+          <p class="nav-note">Escolha um lugar para visitar. Todas as missões revisam a atividade de Português.</p>
+          <div class="science-map" aria-label="Mapa das missões"><div id="moduleList" class="module-list"></div><img id="mapHero" class="map-hero" src="assets/hero.png" alt="" /><button id="skipWalk" class="skip-walk" type="button" hidden>Entrar agora</button></div>
+          <button class="review-button" id="finalReviewButton" type="button">★ Revisão final</button>
+        </nav>
+
+        <section class="lesson" id="lesson">
+          <div class="lesson-heading">
+            <div>
+              <p class="eyebrow" id="lessonKicker">Primeira missão</p>
+              <h2 id="lessonTitle">Escolha uma missão para começar</h2>
+            </div>
+            <div class="lesson-number" id="lessonNumber" aria-hidden="true">—</div>
+          </div>
+          <div class="concept-card" id="conceptCard">
+            <div class="concept-icon" id="conceptIcon" aria-hidden="true">🔎</div>
+            <div><p class="card-label">Ideia principal</p><p id="conceptText">Quando você escolher um assunto, vamos ver uma explicação curtinha aqui.</p></div>
+          </div>
+          <section class="learning-card" id="learningCard" aria-labelledby="learningTitle">
+            <p class="card-label">Antes das perguntas</p>
+            <h3 id="learningTitle" tabindex="-1">Primeiro, vamos entender juntos</h3>
+            <p class="learning-intro">Leia com a Elisa, um ponto de cada vez.</p>
+            <div id="storyVisual" class="story-visual"></div>
+            <ol class="learning-points" id="learningPoints"></ol>
+            <button class="primary-button" id="practiceButton" type="button">Jogar esta missão</button>
+          </section>
+          <div class="question-card" id="questionCard" hidden>
+            <button class="text-button explanation-button" id="explanationButton" type="button">← Voltar à explicação</button>
+            <div class="question-top"><span class="card-label">Vamos pensar</span><span class="question-count" id="questionCount"></span></div>
+            <div id="readingReference" class="reading-reference" hidden></div>
+            <div class="question-prompt">
+              <span class="learning-icon" id="questionIcon" aria-hidden="true"></span>
+              <p class="question" id="questionText" tabindex="-1">Pronto para começar?</p>
+            </div>
+            <div class="classification" id="classification" hidden>
+              <p id="classificationStep" role="status"></p>
+              <p class="story-location">Bancada de achados</p>
+              <button class="answer-option material-card" id="materialCard" type="button" aria-pressed="false"></button>
+            </div>
+            <div id="adventureScene" class="adventure-scene" hidden></div>
+            <div class="answer-area" id="answerArea" role="group" aria-label="Opções de resposta"></div>
+            <div class="hint-area" id="hintArea" hidden></div>
+            <div class="feedback-area" id="feedbackArea" aria-live="polite" hidden></div>
+            <div class="question-actions" id="questionActions">
+              <button class="secondary-button" id="hintButton" type="button">Preciso de uma pista</button>
+              <button class="secondary-button" id="retryButton" type="button" hidden>Tentar de novo</button>
+              <button class="primary-button next-button" id="nextButton" type="button" disabled>Responder</button>
+            </div>
+          </div>
+          <section class="learning-card" id="finishCard" aria-labelledby="finishTitle" hidden>
+            <p class="card-label">Chegada</p>
+            <h3 id="finishTitle" tabindex="-1"></h3>
+            <p class="learning-intro" id="finishText"></p>
+            <div id="exhibitGallery" class="exhibit-gallery" hidden></div>
+            <div class="session-actions">
+              <button class="primary-button" id="continueButton" type="button"></button>
+              <button class="text-button" id="replayButton" type="button">Jogar de novo</button>
+            </div>
+          </section>
+          <div class="adult-note"><span aria-hidden="true">♡</span><p><strong>Para o adulto</strong> · Leia no ritmo da Elisa. Ela pode responder falando, apontando ou tocando.</p></div>
+        </section>
+      </section>
+      <section class="learning-card escrita" aria-labelledby="escritaTitulo">
+        <p class="card-label">Sua vez de criar</p><h2 id="escritaTitulo">Oficina de escrita ✏️</h2>
+        <p>Escolha uma proposta. Escreva, dite ou conte suas ideias para um adulto. Seu texto fica salvo neste navegador.</p>
+        <label for="cartaTexto"><strong>Carta ou bilhete</strong> · Para quem você quer escrever? Conte uma notícia ou diga onde está um objeto esquecido. Lembre de se despedir e assinar.</label>
+        <textarea id="cartaTexto" rows="6" placeholder="Querido(a)..."></textarea>
+        <label for="poemaTexto"><strong>Poema sobre a escola</strong> · Experimente fazer três estrofes. Separe uma da outra com uma linha em branco. Você escolhe quantos versos escrever.</label>
+        <textarea id="poemaTexto" rows="9" placeholder="Meu poema..."></textarea>
+        <p class="learning-intro">Leia o que criou com alguém. Não há uma única resposta certa.</p>
+      </section>
+    </main>
+
+    <dialog class="pause-card" id="pauseDialog" aria-labelledby="pauseTitle">
+      <span class="pause-icon" aria-hidden="true">☁</span>
+      <h2 id="pauseTitle">Tudo bem fazer uma pausa.</h2>
+      <p>Quando quiser voltar, a pergunta estará aqui.</p>
+      <form method="dialog">
+        <button class="primary-button" type="submit" autofocus>Continuar</button>
+      </form>
+    </dialog>
+    <footer><p>Português · 2º ano · 4º bimestre · Revisão da atividade de Português</p></footer>
+    <script src="missoes.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+
